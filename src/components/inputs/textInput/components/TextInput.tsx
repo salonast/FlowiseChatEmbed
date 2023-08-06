@@ -1,4 +1,22 @@
 import { ShortTextInput } from './ShortTextInput'
+// STT Button Functionality
+    const startSpeechToText = () => {
+        startSpeechRecognition((transcript) => {
+            // Handle the recognized speech as user input
+            setInputValue(transcript);
+            submit();
+        });
+    };
+
+    // Adding the STT button next to the chat input field
+    return (
+        <div>
+            <button onClick={startSpeechToText}>Speak</button>
+            {/* Existing chat input field and send button */}
+<input ref={inputRef} />
+<SendButton />
+        </div>
+    );
 import { SendButton } from '@/components/SendButton'
 import { isMobile } from '@/utils/isMobileSignal'
 import { createSignal, onMount } from 'solid-js'
